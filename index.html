@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Channel Home Page</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        body {
+            background: url(background.gif) no-repeat center center fixed;
+            background-size: cover;
+            overflow: hidden;
+        }
+
+        .social-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .social {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: socialMove 20s linear infinite;
+            cursor: pointer;
+            font-size: 24px;
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        @keyframes socialMove {
+            0% { left: -100px; }
+            100% { left: 100%; }
+        }
+
+        .discord {
+            left: -100px;
+            animation-delay: 0s;
+        }
+
+        .youtube {
+            left: -200px;
+            animation-delay: 4s;
+        }
+
+        .alt-youtube {
+            left: -300px;
+            animation-delay: 8s;
+        }
+
+        .flipd {
+            left: -400px;
+            animation-delay: 12s;
+        }
+
+        .twitter {
+            left: -500px;
+            animation-delay: 16s;
+        }
+
+        .soundcloud {
+            left: -600px;
+            animation-delay: 20s;
+        }
+
+        audio {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 9999;
+        }
+    </style>
+    <script>
+        function playAudio() {
+            var audio = document.getElementById("audio");
+            audio.play();
+        }
+    </script>
+</head>
+<body onclick="playAudio()">
+    <div class="social-container">
+        <a class="social discord" href="https://discord.gg/Z3QZMS6DJA" target="_blank">Discord</a>
+        <a class="social youtube" href="https://youtube.com/ultion" target="_blank">YouTube</a>
+        <a class="social alt-youtube" href="https://youtube.com/channel/UCgADRmxp8-J7GPnFpShhBUw" target="_blank">Alt YouTube</a>
+        <a class="social flipd" href="https://flipd.gg/angled" target="_blank">FLIPD</a>
+        <a class="social twitter" href="https://twitter.com/AngledGlitches" target="_blank">Twitter</a>
+        <a class="social soundcloud" href="https://soundcloud.com/angledglitches" target="_blank">Soundcloud</a>
+    </div>
+
+    <audio id="audio" autoplay loop>
+        <source src="media.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function setAnimationDelay() {
+            var socialLinks = document.querySelectorAll('.social');
+            var delay = 4; // Adjust the delay between social links (in seconds)
+            var duration = socialLinks.length * delay; // Total duration of the animation (in seconds)
+
+            socialLinks.forEach((link, index) => {
+                link.style.animationDelay = `${index * delay}s`;
+                link.style.animationDuration = `${duration}s`;
+            });
+        }
+
+        setTimeout(setAnimationDelay, 20000); // Delay the animation after the first cycle
+    </script>
+</body>
+</html>
